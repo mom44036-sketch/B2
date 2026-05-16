@@ -1,0 +1,1191 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>خدمات الشركات</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: '#0F2A33',
+                        primary: '#0d2f56',
+                        teal: '#F4B04E',
+                        light: '#F8FAFC'
+                    },
+                    fontFamily: {
+                        sans: ['Cairo', 'system-ui', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        * { font-family: 'Cairo', sans-serif;  }
+        body { -webkit-font-smoothing: antialiased; }
+        .glass { backdrop-filter: blur(16px); background: rgba(255,255,255,0.7); }
+        .animate-float { animation: float 6s ease-in-out infinite; }
+        @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+    </style>
+</head>
+<body class="bg-[#F8FAFC] text-navy antialiased">
+<!-- Header -->
+<header id="header" class="sticky top-0 z-50 transition-all duration-300">
+    <div class="absolute inset-0 bg-white/80 backdrop-blur-xl border-b border-slate-200/50"></div>
+    <nav class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-[72px]">
+
+            <!-- 1) اللوجو على اليمين - صورة فقط -->
+            <a href="#" class="flex items-center shrink-0">
+                <img src="logo ayed.png" alt="شعار عايد أكاديمي" class="h-10 w-auto object-contain">
+            </a>
+
+            <!-- 2) روابط النص في الوسط -->
+            <div class="hidden md:flex items-center gap-8">
+            <a href="#home" class="block py-2">الرئيسية</a>
+            <a href="#COURS" class="block py-2">دوراتنا</a>
+            <a href="#ABOUT" class="block py-2">لماذا نحن</a>
+            <a href="#features" class="block py-2">المميزات</a>
+            <a href="#STEPS" class="block py-2">الخطوات</a>
+            <a href="#pricing" class="block py-2">الباقات</a>
+            <a href="#FORMY" class="block py-2">الاستمارة</a>
+            <a href="#ASKS" class="block py-2">الاسئلة</a>
+            </div>
+
+            <!-- 3) زر CTA على الشمال -->
+            <div class="flex items-center gap-3">
+                <a href="https://wa.me/201000000000" target="_blank" 
+                class="hidden sm:inline-flex items-center justify-center gap-2 px-5 h-10 rounded-xl bg-[#128C7E] text-white text-sm font-bold hover:bg-[#25D366] transition shadow-lg shadow-slate-900/10">
+                    
+                    <!-- أيقونة واتساب -->
+                   <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+
+                    <span>تواصل مع الدعم</span>
+                </a>
+
+                <button id="menuBtn" class="md:hidden w-10 h-10 grid place-items-center rounded-xl border border-slate-200">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile menu -->
+    <div id="mobileMenu" class="md:hidden hidden border-t border-slate-200 bg-white/95 backdrop-blur-xl">
+        <div class="px-4 py-3 space-y-2">
+  <a href="#home" class="block py-2">الرئيسية</a>
+            <a href="#COURS" class="block py-2">دوراتنا</a>
+            <a href="#ABOUT" class="block py-2">لماذا نحن</a>
+            <a href="#features" class="block py-2">المميزات</a>
+            <a href="#STEPS" class="block py-2">الخطوات</a>
+            <a href="#pricing" class="block py-2">الباقات</a>
+            <a href="#FORMY" class="block py-2">الاستمارة</a>
+            <a href="#ASKS" class="block py-2">الاسئلة</a>
+           <a href="#form" 
+   class="flex items-center justify-center gap-2 w-full mt-2 px-4 py-2.5 rounded-xl bg-[#128C7E] text-white font-bold hover:bg-[#0e6f63] transition">
+   
+   <!-- أيقونة واتساب -->
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+
+   <span>تواصل مع الدعم</span>
+</a>
+        </div>
+    </div>
+</header>
+
+    <!-- Hero -->
+    <section class="relative overflow-hidden" id="home">
+        <div class="absolute inset-0 -z-10">
+            <div class="absolute top-[-200px] right-[-200px] w-[600px] h-[600px] rounded-full bg-gradient-to-br from-primary/20 to-teal/20 blur-[120px]"></div>
+            <div class="absolute bottom-[-150px] left-[-150px] w-[500px] h-[500px] rounded-full bg-gradient-to-tr from-teal/15 to-primary/15 blur-[100px]"></div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 lg:pt-20 pb-16">
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                <div>
+                    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white border border-slate-200 shadow-sm mb-6">
+                        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                        <span class="text-xs font-semibold text-primary">  منصة التدريب رقم 1 في الخليج  </span>
+                    </div>
+                    <h1 class="text-[2rem] leading-[1.5] sm:text-5xl lg:text-[56px] font-extrabold tracking-tight text-primary">
+                        ارتقِ بمهارات فريقك.<br>
+                        <span class="bg-gradient-to-l from-primary to-teal bg-clip-text text-transparent mt-4" style="margin-top: 30px; display: block;">اشتراك واحد، نمو غير محدود.</span>
+                    </h1>
+                    <p class="mt-6 text-lg text-slate-600 leading-relaxed max-w-xl">
+                        منصة تعليمية للشركات تمنح موظفيك وصول غير محدود لأكثر من 50 كورس عملي احترافي متجدد يتناسب مع طموحات شركاتكم.
+                    </p>
+                    <div class="mt-8 flex flex-col sm:flex-row gap-3">
+                        <a href="#form" class="inline-flex items-center justify-center gap-2 px-7 h-[52px] rounded-2xl bg-primary text-white font-bold shadow-xl shadow-blue-600/25 hover:translate-y-[-1px] hover:shadow-2xl hover:shadow-blue-600/30 transition">
+                            اطلب عرض سعر
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+                        </a>
+                        <a href="#form" class="inline-flex items-center justify-center gap-2 px-7 h-[52px] rounded-2xl bg-white border border-slate-300 font-bold text-navy hover:border-slate-400 transition">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                            احجز استشارة مجانية
+                        </a>
+                    </div>
+                    <div class="mt-8 flex items-center gap-6 text-sm text-slate-500">
+                        <div class="flex items-center gap-1.5">
+                            <svg class="w-4 h-4 text-emerald-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/></svg>
+                            إعداد في 48 ساعة
+                        </div>
+                        <div class="flex items-center gap-1.5">
+                            <svg class="w-4 h-4 text-emerald-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/></svg>
+                            دعم عربي 24/7
+                        </div>
+                    </div>
+                </div>
+
+              <!-- Illustration -->
+<!-- Illustration -->
+<div class="relative lg:h- overflow-hidden">
+
+    <img src="045.png" alt="" width="100%" height="100%" class="animate-soft-float">
+
+    <!-- طبقة اللمعة المتحركة -->
+    <div class="shiny-overlay"></div>
+
+    <style>
+        @keyframes softFloat {
+            0%, 100% { transform: translateY(0) }
+            50% { transform: translateY(-15px) }
+        }
+      .animate-soft-float {
+            animation: softFloat 5s ease-in-out infinite;
+        }
+
+        /* اللمعة المتحركة */
+        @keyframes shinyMove {
+            0% { transform: translateX(-150%) skewX(-25deg); }
+            100% { transform: translateX(250%) skewX(-25deg); }
+        }
+
+      .shiny-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+      .shiny-overlay::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 35%; /* كانت 30% - خليتها أعرض شوية */
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                rgba(255,255,255,0) 0%,
+                rgba(255,255,255,0.5) 50%, /* كانت 0.2 - زودتها لـ 0.5 */
+                rgba(255,255,255,0) 100%
+            );
+            animation: shinyMove 3.5s ease-in-out infinite; /* أسرع سنة عشان تبان أكتر */
+            animation-delay: 0.5s;
+        }
+    </style>
+
+</div>
+</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof -->
+    <section class="border-y border-slate-200/70 bg-white/60 backdrop-blur" id="COURS">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+
+            <div  class="py-5" style="overflow: hidden; direction: ltr; background-color: #ffffff;">
+                    <div class="container">
+                        <!-- <h2 class="text-center fw-bold mb-5" style="color: #003a65;">أهم دوراتنا</h2>
+                    <img src="assets/line.png" alt="" style="width: 200px; margin: 0px auto; display: block;"> -->
+
+                
+                       <section class="py-10 overflow-hidden bg-white" dir="ltr">
+
+  <div class="max-w-7xl mx-auto px-4">
+
+   
+<div class="py-1 overflow-hidden bg-white" dir="ltr">
+
+    <div class="max-w-7xl mx-auto px-4">
+
+      <p class="text-center text-[18px] font-semibold text-gray-400">
+بنقدملكم أكثر من 50+ دورة تدريبية احترافية لتطوير من اداء موظفين شركاتكم
+    </p>
+
+      <!-- الصف الأول -->
+      <div class="marquee-row marquee-left overflow-hidden mt-12">
+
+        <div class="marquee-wrapper">
+
+          <!-- النسخة الأولى -->
+          <div class="marquee-track">
+
+            <a href="https://ayedacademy.co/courses/86" class="logo-item shrink-0" target="_blank">
+              <img src="assets/01.webp" alt="Course"
+                class="w-[120px] md:w-[160px] grayscale opacity-60">
+            </a>
+
+            <a href="https://ayedacademy.co/courses/74" class="logo-item shrink-0" target="_blank">
+              <img src="assets/02.webp" alt="Course"
+                class="w-[120px] md:w-[160px] grayscale opacity-60">
+            </a>
+
+            <a href="https://ayedacademy.co/courses/37" class="logo-item shrink-0" target="_blank">
+              <img src="assets/03.webp" alt="Course"
+                class="w-[120px] md:w-[160px] grayscale opacity-60">
+            </a>
+
+            <a href="https://ayedacademy.co/course/368/SPEAK-IT-OUT" class="logo-item shrink-0" target="_blank">
+              <img src="assets/04.webp" alt="Course"
+                class="w-[120px] md:w-[160px] grayscale opacity-60">
+            </a>
+
+            <a href="https://ayedacademy.co/all-courses?searchCourse=toy&category=&type=&price=#"
+              class="logo-item shrink-0" target="_blank">
+              <img src="assets/05.webp" alt="Course"
+                class="w-[120px] md:w-[160px] grayscale opacity-60">
+            </a>
+
+            <a href="https://ayedacademy.co/all-courses?searchCourse=smart&category=&type=&price="
+              class="logo-item shrink-0" target="_blank">
+              <img src="assets/06.webp" alt="Course"
+                class="w-[120px] md:w-[160px] grayscale opacity-60">
+            </a>
+
+          </div>
+
+          <!-- النسخة الثانية -->
+          <div class="marquee-track">
+
+            <a href="https://ayedacademy.co/courses/86" class="logo-item shrink-0" target="_blank">
+              <img src="assets/01.webp" alt="Course"
+                class="w-[120px] md:w-[160px] grayscale opacity-60">
+            </a>
+
+            <a href="https://ayedacademy.co/courses/74" class="logo-item shrink-0" target="_blank">
+              <img src="assets/02.webp" alt="Course"
+                class="w-[120px] md:w-[160px] grayscale opacity-60">
+            </a>
+
+            <a href="https://ayedacademy.co/courses/37" class="logo-item shrink-0" target="_blank">
+              <img src="assets/03.webp" alt="Course"
+                class="w-[120px] md:w-[160px] grayscale opacity-60">
+            </a>
+
+            <a href="https://ayedacademy.co/course/368/SPEAK-IT-OUT" class="logo-item shrink-0" target="_blank">
+              <img src="assets/04.webp" alt="Course"
+                class="w-[120px] md:w-[160px] grayscale opacity-60">
+            </a>
+
+            <a href="https://ayedacademy.co/all-courses?searchCourse=toy&category=&type=&price=#"
+              class="logo-item shrink-0" target="_blank">
+              <img src="assets/05.webp" alt="Course"
+                class="w-[120px] md:w-[160px] grayscale opacity-60">
+            </a>
+
+            <a href="https://ayedacademy.co/all-courses?searchCourse=smart&category=&type=&price="
+              class="logo-item shrink-0" target="_blank">
+              <img src="assets/06.webp" alt="Course"
+                class="w-[120px] md:w-[160px] grayscale opacity-60">
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- الصف الثاني -->
+      <div class="marquee-row marquee-right overflow-hidden mt-8">
+
+        <div class="marquee-wrapper">
+
+          <!-- النسخة الأولى -->
+          <div class="marquee-track">
+
+            <a href="https://ayedacademy.co/course/498/Business-English"
+              class="logo-item shrink-0" target="_blank">
+              <img src="assets/07.webp" alt="Course"
+                class="w-[120px] md:w-[160px] grayscale opacity-60">
+            </a>
+
+            <a href="https://ayedacademy.co/courses/76"
+              class="logo-item shrink-0" target="_blank">
+              <img src="assets/08.webp" alt="Course"
+                class="w-[120px] md:w-[160px] grayscale opacity-60">
+            </a>
+
+            <a href="https://ayedacademy.co/courses/70"
+              class="logo-item shrink-0" target="_blank">
+              <img src="assets/09.webp" alt="Course"
+                class="w-[120px] md:w-[160px] grayscale opacity-60">
+            </a>
+
+            <a href="https://ayedacademy.co/all-courses"
+              class="logo-item shrink-0" target="_blank">
+              <img src="assets/10.webp" alt="Course"
+                class="w-[120px] md:w-[160px] grayscale opacity-60">
+            </a>
+
+            <a href="https://ayedacademy.co/courses/40"
+              class="logo-item shrink-0" target="_blank">
+              <img src="assets/11.webp" alt="Course"
+                class="w-[120px] md:w-[160px] grayscale opacity-60">
+            </a>
+
+            <a href="https://ayedacademy.co/courses/45"
+              class="logo-item shrink-0" target="_blank">
+              <img src="assets/12.webp" alt="Course"
+                class="w-[120px] md:w-[160px] grayscale opacity-60">
+            </a>
+
+          </div>
+
+          <!-- النسخة الثانية -->
+          <div class="marquee-track">
+
+            <a href="https://ayedacademy.co/course/498/Business-English"
+              class="logo-item shrink-0" target="_blank">
+              <img src="assets/07.webp" alt="Course"
+                class="w-[120px] md:w-[160px] grayscale opacity-60">
+            </a>
+
+            <a href="https://ayedacademy.co/courses/76"
+              class="logo-item shrink-0" target="_blank">
+              <img src="assets/08.webp" alt="Course"
+                class="w-[120px] md:w-[160px] grayscale opacity-60">
+            </a>
+
+            <a href="https://ayedacademy.co/courses/70"
+              class="logo-item shrink-0" target="_blank">
+              <img src="assets/09.webp" alt="Course"
+                class="w-[120px] md:w-[160px] grayscale opacity-60">
+            </a>
+
+            <a href="https://ayedacademy.co/all-courses"
+              class="logo-item shrink-0" target="_blank">
+              <img src="assets/10.webp" alt="Course"
+                class="w-[120px] md:w-[160px] grayscale opacity-60">
+            </a>
+
+            <a href="https://ayedacademy.co/courses/40"
+              class="logo-item shrink-0" target="_blank">
+              <img src="assets/11.webp" alt="Course"
+                class="w-[120px] md:w-[160px] grayscale opacity-60">
+            </a>
+
+            <a href="https://ayedacademy.co/courses/45"
+              class="logo-item shrink-0" target="_blank">
+              <img src="assets/12.webp" alt="Course"
+                class="w-[120px] md:w-[160px] grayscale opacity-60">
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+</div>
+  </div>
+
+</section>
+
+                <style>
+   /* الحركة السلسة بدون تقطيع */
+.marquee-wrapper {
+  display: flex;
+  width: max-content;
+}
+
+.marquee-track {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  width: max-content;
+}
+
+/* الصف الأول */
+.marquee-left .marquee-wrapper {
+  animation: scrollLeft 25s linear infinite;
+}
+
+/* الصف الثاني */
+.marquee-right .marquee-wrapper {
+  animation: scrollRight 25s linear infinite;
+}
+
+/* وقف الحركة عند الـ hover */
+.marquee-row:hover .marquee-wrapper {
+  animation-play-state: paused;
+}
+
+/* Hover */
+.logo-item img {
+  transition: all .3s ease;
+}
+
+.logo-item:hover img {
+  filter: grayscale(0%);
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+/* الحركة */
+@keyframes scrollLeft {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes scrollRight {
+  from {
+    transform: translateX(-50%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+              </style>
+
+
+        </div>
+    </section>
+
+    <!-- Why Us -->
+<section class="relative py-20 lg:py-28 overflow-hidden" id="ABOUT">
+
+    <!-- Animated Wave Background -->
+    <div class="absolute inset-0 -z-10 bg-[#f8f9fb]">
+        
+        <!-- Wave 1 -->
+        <div class="wave wave1"></div>
+
+        <!-- Wave 2 -->
+        <div class="wave wave2"></div>
+
+        <!-- Wave 3 -->
+        <div class="wave wave3"></div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-2xl mx-auto text-center mb-14">
+            <h2 class="text-3xl lg:text-4xl font-extrabold tracking-tight text-primary">
+                لماذا الشركات تختارنا
+            </h2>
+
+            <p class="mt-3 text-slate-600">
+                حلول تدريب مصممة لاحتياجات الشركات في المنطقة، بجودة عالمية ودعم محلي.
+            </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6 lg:gap-8">
+
+            <div class="group relative bg-white p-8 border border-slate-200 shadow-sm hover:shadow-xl hover:-translate-y-1 transition duration-500 rounded-3xl">
+                <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-primary/15 to-teal/15 text-primary grid place-items-center mb-5 group-hover:scale-110 transition">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
+                    </svg>
+                </div>
+
+                <h3 class="text-xl font-extrabold mb-2 text-[#ffb526]">
+                    توفير التكلفة 40%
+                </h3>
+
+                <p class="text-slate-600 leading-relaxed">
+                    اشتراك موحد بدلاً من دورات فردية مكلفة. وصول غير محدود لكل الموظفين بتكلفة متوقعة.
+                </p>
+            </div>
+
+            <div class="group relative bg-white p-8 border border-slate-200 shadow-sm hover:shadow-xl hover:-translate-y-1 transition duration-500 rounded-3xl">
+                <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-primary/15 to-teal/15 text-primary grid place-items-center mb-5 group-hover:scale-110 transition">
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                        class="w-6 h-6"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        stroke-width="2">
+                        <path stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                    </svg>
+                </div>
+
+                <h3 class="text-xl font-extrabold mb-2 text-[#ffb526]">
+                    محتوى عملي محدث
+                </h3>
+
+                <p class="text-slate-600 leading-relaxed">
+                    أكثر من 50 كورس بالعربية والإنجليزية، يتم تحديثه شهريًا حسب متطلبات السوق.
+                </p>
+            </div>
+
+            <div class="group relative bg-white p-8 border border-slate-200 shadow-sm hover:shadow-xl hover:-translate-y-1 transition duration-500 rounded-3xl">
+                <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-primary/15 to-teal/15 text-primary grid place-items-center mb-5 group-hover:scale-110 transition">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                    </svg>
+                </div>
+
+                <h3 class="text-xl font-extrabold mb-2 text-[#ffb526]">
+                    تقارير أداء فورية
+                </h3>
+
+                <p class="text-slate-600 leading-relaxed">
+                    تقرير مفصل للمدير تعرض التقدم، الإكمال، والمهارات المكتسبة لكل موظف وفريق.
+                </p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<style>
+.wave{
+    position:absolute;
+    left:-25%;
+    width:150%;
+    height:220px;
+    border-radius:43%;
+    background:rgba(203, 213, 225, 0.28);
+    animation: waveMove linear infinite;
+    filter: blur(2px);
+}
+
+.wave1{
+    bottom:-120px;
+    animation-duration: 16s;
+}
+
+.wave2{
+    bottom:-140px;
+    opacity:.5;
+    animation-duration: 24s;
+    background:rgba(148, 163, 184, 0.18);
+}
+
+.wave3{
+    bottom:-160px;
+    opacity:.35;
+    animation-duration: 30s;
+    background:rgba(226, 232, 240, 0.5);
+}
+
+@keyframes waveMove{
+    0%{
+        transform: translateX(0) rotate(0deg);
+    }
+    50%{
+        transform: translateX(-3%) rotate(180deg);
+    }
+    100%{
+        transform: translateX(0) rotate(360deg);
+    }
+}
+</style>
+
+    <!-- Features -->
+    <section id="features" class="py-20 bg-white border-y border-slate-100">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <div class="grid lg:grid-cols-2 gap-14 items-center">
+
+                <!-- Right Content -->
+                <div>
+
+                    <!-- Badge -->
+                    <div
+                        class="inline-flex items-center px-5 py-2 rounded-full border border-gray-300 bg-white text-sm font-semibold text-[#0a1733] shadow-sm mb-6">
+                        المميزات
+                    </div>
+
+                    <!-- Heading -->
+                    <h2 class="text-lg lg:text-4xl font-extrabold text-primary leading-tight mb-5">
+                        كل ما تحتاجه لإدارة التدريب
+                    </h2>
+
+                    <!-- Description -->
+                    <p class="text-lg text-gray-500 leading-relaxed mb-12">
+                        أدوات متكاملة لتحويل التدريب من عبء إداري إلى ميزة تنافسية حقيقية.
+                    </p>
+
+                    <!-- Features -->
+                    <div class="grid sm:grid-cols-2 gap-6">
+
+                        <!-- Card -->
+                        <div
+                            class="bg-[#eef1f5] rounded-[28px] p-8 shadow-sm hover:shadow-lg transition duration-300">
+                            <div
+                                class="w-16 h-16 rounded-2xl bg-primary flex items-center justify-center text-white mb-6">
+                                <!-- icon -->
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 20l-5.447-2.724A2 2 0 013 15.382V6.618a2 2 0 011.553-1.894l4-1A2 2 0 0110 3.618v16.764a2 2 0 01-1 .618zM15 20l5.447-2.724A2 2 0 0021 15.382V6.618a2 2 0 00-1.553-1.894l-4-1A2 2 0 0014 3.618v16.764a2 2 0 001 .618z" />
+                                </svg>
+                            </div>
+
+                            <h3 class="text-2xl font-bold text-teal mb-3">
+                                مسارات مخصصة
+                            </h3>
+
+                            <p class="text-gray-500 leading-loose">
+                                أنشئ مسارات حسب القسم والمستوى الوظيفي.
+                            </p>
+                        </div>
+
+                        <!-- Card -->
+                        <div
+                            class="bg-[#eef1f5] rounded-[28px] p-8 shadow-sm hover:shadow-lg transition duration-300">
+                            <div
+                                class="w-16 h-16 rounded-2xl bg-primary flex items-center justify-center text-white mb-6">
+
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M3 7h18M3 12h18M3 17h18" />
+                                </svg>
+                            </div>
+
+                            <h3 class="text-2xl font-bold text-teal mb-3">
+                               تقرير أداء
+                            </h3>
+
+                            <p class="text-gray-500 leading-loose">
+                                تحكم كامل في المستخدمين والإحصائيات والتقارير.
+                            </p>
+                        </div>
+
+                        <!-- Card -->
+                        <div
+                            class="bg-[#eef1f5] rounded-[28px] p-8 shadow-sm hover:shadow-lg transition duration-300">
+                            <div
+                                class="w-16 h-16 rounded-2xl bg-primary flex items-center justify-center text-white mb-6">
+
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                            </div>
+
+                            <h3 class="text-2xl font-bold text-teal mb-3">
+                                دعم عربي 24/7
+                            </h3>
+
+                            <p class="text-gray-500 leading-loose">
+                                فريق دعم متخصص يفهم احتياجات شركتك.
+                            </p>
+                        </div>
+
+                        <!-- Card -->
+                        <div
+                            class="bg-[#eef1f5] rounded-[28px] p-8 shadow-sm hover:shadow-lg transition duration-300">
+                            <div
+                                class="w-16 h-16 rounded-2xl bg-primary flex items-center justify-center text-white mb-6">
+<svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="none"
+    viewBox="0 0 24 24" stroke="currentColor">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+        d="M12 14l9-5-9-5-9 5 9 5z" />
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+        d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+        d="M12 14v7" />
+</svg>
+
+                            </div>
+
+                            <h3 class="text-2xl font-bold text-teal mb-3">
+                                شهادات معتمدة
+                            </h3>
+
+                            <p class="text-gray-500 leading-loose">
+                                شهادات قابلة للمشاركة والتحقق الفوري.
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- Left Image -->
+                <div class="relative">
+
+                    <!-- Glow -->
+                    <div
+                        class="absolute -bottom-10 left-1/2 -translate-x-1/2 w-[80%] h-20 bg-black/20 blur-3xl rounded-full">
+                    </div>
+
+                    <!-- Image Container -->
+                    <div
+                        class="relative  overflow-hidden  ">
+
+                        <img src="VBV.png" alt="dashboard"
+                            class="w-full h-full object-cover rounded-[35px] edge-blur"  />
+
+                            <style>
+        .edge-blur {
+            width: 100%;
+            height: auto;
+            /* نعمل نسخة مبكسلة في الخلفية */
+            filter: blur(0.5px);
+            /* الماسك بيخفي البلور من النص ويظهره عالأطراف بس */
+            mask-image: radial-gradient(
+                ellipse at center,
+                rgba(0,0,0,1) 45%,  /* النص واضح 100% */
+                rgba(0,0,0,0) 70%   /* الأطراف شفافة = البلور يبان */
+            );
+            -webkit-mask-image: radial-gradient(
+                ellipse at center,
+                rgba(0,0,0,1) 45%,
+                rgba(0,0,0,0) 70%
+            );
+        }
+    </style>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- How It Works Section -->
+     <section class="relative py-24 bg-[#f3f4f6] overflow-hidden" dir="rtl" id="STEPS">
+
+    <!-- Background Glow -->
+    <div class="absolute top-0 left-0 w-72 h-72 bg-blue-100 rounded-full blur-3xl opacity-30"></div>
+    <div class="absolute bottom-0 right-0 w-72 h-72 bg-orange-100 rounded-full blur-3xl opacity-30"></div>
+
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+
+        <!-- Heading -->
+        <div class="text-center mb-20">
+            <span class="inline-block px-4 py-2 rounded-full bg-blue-50 text-[#0d2f56] font-semibold text-sm mb-4">
+                خطوات بسيطة
+            </span>
+
+            <h2 class="text-4xl lg:text-5xl font-extrabold text-[#0d2f56] mb-5 leading-tight">
+                كيف يعمل النظام؟
+            </h2>
+
+            <p class="text-gray-500 text-lg max-w-2xl mx-auto leading-relaxed">
+                خطوات سهلة وسريعة تساعد شركتك تبدأ التدريب الإلكتروني بشكل احترافي خلال أيام قليلة.
+            </p>
+        </div>
+
+        <!-- Steps -->
+        <div class="relative">
+
+            <!-- Line -->
+            <div class="hidden lg:block absolute top-16 right-0 left-0 h-[2px] bg-gradient-to-l from-[#0d2f56] via-slate-200 to-[#f5b041]"></div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+
+                <!-- Step 1 -->
+                <div class="group relative bg-white rounded-3xl p-8 shadow-sm hover:shadow-2xl transition-all duration-500 border border-slate-100 hover:-translate-y-3">
+
+                    <!-- Number -->
+                    <div class="absolute -top-7 right-8 w-16 h-16 rounded-2xl bg-[#0d2f56] text-white flex items-center justify-center text-2xl font-extrabold shadow-lg group-hover:scale-110 transition">
+                        1
+                    </div>
+
+                    <!-- Icon -->
+                    <div class="w-16 h-16 rounded-2xl bg-blue-50 flex items-center justify-center mt-[30px]">
+                        <svg class="w-8 h-8 text-[#0d2f56]" fill="none" stroke="currentColor" stroke-width="2"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M8 12h8m-8 4h5m4 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                        </svg>
+                    </div>
+
+                    <h3 class="text-2xl font-bold text-[#0d2f56] my-4">
+                        املأ النموذج
+                    </h3>
+
+                    <p class="text-gray-500 leading-loose text-lg">
+                        أخبرنا عن شركتك وعدد الموظفين واحتياجات التدريب لنجهز لك أفضل خطة مناسبة.
+                    </p>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="group relative bg-white rounded-3xl p-8 shadow-sm hover:shadow-2xl transition-all duration-500 border border-slate-100 hover:-translate-y-3">
+
+                    <!-- Number -->
+                    <div class="absolute -top-7 right-8 w-16 h-16 rounded-2xl bg-[#123d77] text-white flex items-center justify-center text-2xl font-extrabold shadow-lg group-hover:scale-110 transition">
+                        2
+                    </div>
+
+                    <!-- Icon -->
+                    <div class="w-16 h-16 rounded-2xl bg-slate-100 flex items-center justify-center mt-[30px]">
+                        <svg class="w-8 h-8 text-[#123d77]" fill="none" stroke="currentColor" stroke-width="2"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M17 20h5V4H2v16h5m10 0v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6m10 0H7" />
+                        </svg>
+                    </div>
+
+                    <h3 class="text-2xl font-bold text-[#0d2f56] my-4">
+                        نخصص منصتك
+                    </h3>
+
+                    <p class="text-gray-500 leading-loose text-lg">
+                        نقوم بإعداد لوحة التحكم وإضافة الهوية الخاصة بشركتك لتكون جاهزة بالكامل.
+                    </p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="group relative bg-white rounded-3xl p-8 shadow-sm hover:shadow-2xl transition-all duration-500 border border-slate-100 hover:-translate-y-3">
+
+                    <!-- Number -->
+                    <div class="absolute -top-7 right-8 w-16 h-16 rounded-2xl bg-[#f5b041] text-white flex items-center justify-center text-2xl font-extrabold shadow-lg group-hover:scale-110 transition">
+                        3
+                    </div>
+
+                    <!-- Icon -->
+                    <div class="w-16 h-16 rounded-2xl bg-orange-50 flex items-center justify-center mt-[30px]">
+                      <svg class="w-8 h-8 text-[#f5b041]" fill="none" stroke="currentColor" stroke-width="2"
+     viewBox="0 0 24 24">
+    <path stroke-linecap="round" stroke-linejoin="round"
+          d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+</svg>
+                    </div>
+
+                    <h3 class="text-2xl font-bold text-[#0d2f56] my-4">
+                        ابدأ خلال 48 ساعة
+                    </h3>
+
+                    <p class="text-gray-500 leading-loose text-lg">
+                        فريقك يبدأ التعلم مباشرة مع إعداد كامل للحسابات والدعم الفني المستمر.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Pricing -->
+    <section id="pricing" class="py-20 bg-white border-y border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-2xl mx-auto text-center mb-12">
+                <h2 class="text-3xl lg:text-4xl font-extrabold">الباقات</h2>
+                <p class="mt-3 text-slate-600">تسعير مرن ينمو مع شركتك. بدون رسوم خفية.</p>
+            </div>
+            <div class="grid lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+                <!-- Starter -->
+                <div class="rounded-[28px] border border-slate-200 bg-[#F8FAFC] p-8 flex flex-col">
+                    <h3 class="text-xl font-extrabold">Starter</h3>
+                    <p class="text-slate-600 mt-1">حتى 20 موظف</p>
+                    <div class="mt-6"><span class="text-2xl font-extrabold">سعر خاص حسب العدد</span></div>
+                    <ul class="mt-6 space-y-3 text-sm">
+                        <li class="flex gap-2"><svg class="w-5 h-5 text-emerald-600 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/></svg>وصول كامل للمكتبة</li>
+                        <li class="flex gap-2"><svg class="w-5 h-5 text-emerald-600 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/></svg>لوحة تحكم أساسية</li>
+                        <li class="flex gap-2"><svg class="w-5 h-5 text-emerald-600 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/></svg>دعم عبر البريد</li>
+                    </ul>
+                   <a href="#form" class="mt-8 block text-center h-12 grid place-items-center rounded-xl border border-slate-300 font-bold hover:bg-white transition">
+    اطلب عرض سعر
+</a>
+                </div>
+                <!-- Growth -->
+                <div class="rounded-[28px] border-2 border-primary bg-white p-8 flex flex-col shadow-[0_20px_60px_-20px_rgba(37,99,235,0.35)] relative">
+                    <span class="absolute -top-3.5 right-6 px-3 py-1 rounded-full bg-primary text-white text-xs font-bold shadow">الأكثر شيوعاً</span>
+                    <h3 class="text-xl font-extrabold">Growth</h3>
+                    <p class="text-slate-600 mt-1">21 - 100 موظف</p>
+                    <div class="mt-6"><span class="text-2xl font-extrabold">سعر خاص حسب العدد</span></div>
+                    <ul class="mt-6 space-y-3 text-sm">
+                        <li class="flex gap-2"><svg class="w-5 h-5 text-emerald-600 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/></svg>كل مزايا Starter +</li>
+                        <li class="flex gap-2"><svg class="w-5 h-5 text-emerald-600 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/></svg>مسارات مخصصة وتقارير متقدمة</li>
+                        <li class="flex gap-2"><svg class="w-5 h-5 text-emerald-600 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/></svg>مدير حساب مخصص</li>
+                        <li class="flex gap-2"><svg class="w-5 h-5 text-emerald-600 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/></svg>تكامل SSO</li>
+                    </ul>
+                    <a href="#form" class="mt-8 block text-center h-12 grid place-items-center rounded-xl bg-primary text-white font-bold shadow-lg shadow-blue-600/20 hover:translate-y-[-1px] transition">احجز  الآن</a>
+                </div>
+                <!-- Enterprise -->
+                <div class="rounded-[28px] border border-slate-200 bg-[#F8FAFC] p-8 flex flex-col">
+                    <h3 class="text-xl font-extrabold">Enterprise</h3>
+                    <p class="text-slate-600 mt-1">مخصص</p>
+                    <div class="mt-6"><span class="text-2xl font-extrabold">سعر خاص حسب العدد</span></div>
+                    <ul class="mt-6 space-y-3 text-sm">
+                        <li class="flex gap-2"><svg class="w-5 h-5 text-emerald-600 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/></svg>كل مزايا Growth +</li>
+                        <li class="flex gap-2"><svg class="w-5 h-5 text-emerald-600 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/></svg>محتوى حسب الطلب</li>
+                        <li class="flex gap-2"><svg class="w-5 h-5 text-emerald-600 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/></svg>SLA ودعم مخصص</li>
+                    </ul>
+                    <a href="#form" class="mt-8 block text-center h-12 grid place-items-center rounded-xl border border-slate-300 font-bold hover:bg-white transition">
+    تحدث مع المبيعات
+</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dashboard -->
+    <!-- <section id="dashboard" class="py-20 lg:py-28">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-3xl lg:text-4xl font-extrabold">لوحة التحكم</h2>
+                    <p class="mt-4 text-lg text-slate-600">تابع كل شيء في مكان واحد: تقارير التقدم، نسبة الإكمال، والموظفين الأكثر نشاطاً.</p>
+                    <ul class="mt-8 space-y-4">
+                        <li class="flex gap-3"><span class="mt-1 w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 grid place-items-center">✓</span><div><p class="font-bold">تقارير التقدم الفورية</p><p class="text-sm text-slate-600">لكل موظف، فريق، وقسم.</p></div></li>
+                        <li class="flex gap-3"><span class="mt-1 w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 grid place-items-center">✓</span><div><p class="font-bold">نسبة الإكمال الذكية</p><p class="text-sm text-slate-600">تعرّف على الدورات المتعثرة وتدخل مبكرًا.</p></div></li>
+                        <li class="flex gap-3"><span class="mt-1 w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 grid place-items-center">✓</span><div><p class="font-bold">الموظفون الأكثر نشاطاً</p><p class="text-sm text-slate-600">كافئ المتعلمين المتميزين وحفّز الآخرين.</p></div></li>
+                    </ul>
+                </div>
+                <div class="relative">
+                    <div class="absolute -inset-6 bg-gradient-to-tr from-primary/20 to-teal/20 rounded-[3rem] blur-3xl"></div>
+                    <div class="relative bg-white rounded-[2rem] shadow-2xl border border-slate-200 p-2">
+                        <div class="rounded-[1.5rem] bg-[#F8FAFC] p-5 lg:p-7">
+                            <div class="flex items-center justify-between mb-5">
+                                <div class="flex items-center gap-2">
+                                    <div class="w-8 h-8 rounded-lg bg-navy text-white grid place-items-center text-xs font-bold">ت</div>
+                                    <div><p class="text-xs text-slate-500">لوحة تحكم</p><p class="font-bold -mt-1">شركة تقنية</p></div>
+                                </div>
+                                <div class="flex gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-red-400"></span><span class="w-2.5 h-2.5 rounded-full bg-yellow-400"></span><span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span></div>
+                            </div>
+                            <div class="grid grid-cols-3 gap-3 mb-5">
+                                <div class="bg-white rounded-2xl p-4 border border-slate-200"><p class="text-[11px] text-slate-500">نسبة الإكمال</p><p class="text-2xl font-extrabold mt-1">78%</p><div class="mt-2 h-1.5 bg-slate-100 rounded-full overflow-hidden"><div class="h-full w-[78%] bg-primary rounded-full"></div></div></div>
+                                <div class="bg-white rounded-2xl p-4 border border-slate-200"><p class="text-[11px] text-slate-500">الدورات النشطة</p><p class="text-2xl font-extrabold mt-1">34</p><p class="text-[11px] text-emerald-600 mt-1">▲ 8 هذا الشهر</p></div>
+                                <div class="bg-white rounded-2xl p-4 border border-slate-200"><p class="text-[11px] text-slate-500">الموظفون</p><p class="text-2xl font-extrabold mt-1">94</p><p class="text-[11px] text-slate-500 mt-1">12 فريق</p></div>
+                            </div>
+                            <div class="bg-white rounded-2xl p-4 border border-slate-200">
+                                <div class="flex items-center justify-between mb-3"><p class="font-bold text-sm">الموظفون الأكثر نشاطاً</p><p class="text-xs text-slate-500">آخر 7 أيام</p></div>
+                                <div class="space-y-3">
+                                    <div class="flex items-center gap-3"><div class="w-8 h-8 rounded-full bg-gradient-to-br from-violet-400 to-purple-600"></div><div class="flex-1"><div class="flex justify-between text-sm"><span class="font-medium">سارة القحطاني</span><span class="text-slate-500">12 ساعة</span></div><div class="h-1.5 bg-slate-100 rounded-full mt-1"><div class="h-full w-[90%] bg-gradient-to-l from-primary to-teal rounded-full"></div></div></div></div>
+                                    <div class="flex items-center gap-3"><div class="w-8 h-8 rounded-full bg-gradient-to-br from-blue-400 to-cyan-600"></div><div class="flex-1"><div class="flex justify-between text-sm"><span class="font-medium">أحمد منصور</span><span class="text-slate-500">9.5 ساعة</span></div><div class="h-1.5 bg-slate-100 rounded-full mt-1"><div class="h-full w-[75%] bg-gradient-to-l from-primary to-teal rounded-full"></div></div></div></div>
+                                    <div class="flex items-center gap-3"><div class="w-8 h-8 rounded-full bg-gradient-to-br from-amber-400 to-orange-600"></div><div class="flex-1"><div class="flex justify-between text-sm"><span class="font-medium">ليلى حسن</span><span class="text-slate-500">8 ساعات</span></div><div class="h-1.5 bg-slate-100 rounded-full mt-1"><div class="h-full w-[65%] bg-gradient-to-l from-primary to-teal rounded-full"></div></div></div></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- Testimonials -->
+    <section class="py-20 bg-primary text-white relative overflow-hidden">
+        <div class="absolute inset-0 opacity-[0.03]" style="background-image:radial-gradient(white 1px,transparent 1px);background-size:24px 24px"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+            <h2 class="text-3xl lg:text-4xl font-extrabold text-center">قصص نجاح</h2>
+            <div class="mt-12 grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+                <div class="rounded-[28px] bg-white/5 border border-white/10 p-8 backdrop-blur">
+                    <div class="flex gap-1 text-amber-400 mb-4">★★★★★</div>
+                    <p class="text-lg leading-relaxed text-slate-100">“قللنا تكلفة التدريب 42% وزادت نسبة إكمال الدورات من 31% إلى 79% خلال 3 أشهر فقط. لوحة التحكم وفرت علينا ساعات متابعة أسبوعيًا.”</p>
+                    <div class="mt-6 flex items-center gap-3">
+                        <div class="w-11 h-11 rounded-full bg-gradient-to-br from-primary to-teal grid place-items-center font-bold">أ</div>
+                        <div><p class="font-bold">أحمد، مدير تدريب - شركة تقنية</p><p class="text-sm text-slate-300">الرياض، السعودية</p></div>
+                    </div>
+                </div>
+                <div class="rounded-[28px] bg-white/5 border border-white/10 p-8 backdrop-blur">
+                    <div class="flex gap-1 text-amber-400 mb-4">★★★★★</div>
+                    <p class="text-lg leading-relaxed text-slate-100">“الدعم العربي كان فارقًا كبيرًا. خصصنا مسارات للامتثال والمهارات الرقمية، والتكامل مع نظام HR تم في يوم واحد.”</p>
+                    <div class="mt-6 flex items-center gap-3">
+                        <div class="w-11 h-11 rounded-full bg-gradient-to-br from-teal to-blue-500 grid place-items-center font-bold">س</div>
+                        <div><p class="font-bold">سارة، HR - بنك</p><p class="text-sm text-slate-300">دبي، الإمارات</p></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Form -->
+    <section id="FORMY" class="py-20 lg:py-28">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-5 gap-10 items-start">
+                <div class="lg:col-span-3">
+                    <div class="bg-white rounded-[32px] border border-slate-200 shadow-xl p-8 lg:p-10">
+                        <h3 class="text-2xl font-extrabold">سجل شركتك الآن</h3>
+                        <p class="mt-2 text-slate-600">املأ البيانات وسيتواصل معك فريقنا لتخصيص الباقة.</p>
+                        <form id="leadForm" class="mt-8 grid sm:grid-cols-2 gap-5">
+                            <div>
+                                <label class="text-sm font-bold text-slate-700">اسم الشركة *</label>
+                                <input required name="company" class="mt-1.5 w-full h-12 px-4 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition" placeholder="مثال: شركة النور التقنية">
+                            </div>
+                            <div>
+                                <label class="text-sm font-bold text-slate-700">المجال/الصناعة *</label>
+                                <input required name="industry" class="mt-1.5 w-full h-12 px-4 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition" placeholder="التقنية، البنوك، التجزئة...">
+                            </div>
+                            <div>
+                                <label class="text-sm font-bold text-slate-700">عدد الموظفين *</label>
+                                <select required name="size" class="mt-1.5 w-full h-12 px-4 rounded-xl border border-slate-300 bg-white focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition">
+                                    <option value="">اختر...</option>
+                                    <option>1-20</option>
+                                    <option>21-50</option>
+                                    <option>51-100</option>
+                                    <option>100+</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="text-sm font-bold text-slate-700">اسم مسؤول التواصل *</label>
+                                <input required name="name" class="mt-1.5 w-full h-12 px-4 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition" placeholder="الاسم الكامل">
+                            </div>
+                            <div>
+                                <label class="text-sm font-bold text-slate-700">البريد الإلكتروني الرسمي *</label>
+                                <input required type="email" name="email" class="mt-1.5 w-full h-12 px-4 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition" placeholder="name@company.com">
+                            </div>
+                            <div>
+                                <label class="text-sm font-bold text-slate-700">رقم الهاتف *</label>
+                                <input required name="phone" class="mt-1.5 w-full h-12 px-4 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition" placeholder="+966 5x xxx xxxx" dir="ltr">
+                            </div>
+                            <div class="sm:col-span-2">
+                                <label class="text-sm font-bold text-slate-700">رسالة اختيارية</label>
+                                <textarea name="message" rows="3" class="mt-1.5 w-full px-4 py-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition" placeholder="أخبرنا عن احتياجات التدريب لديكم..."></textarea>
+                            </div>
+                            <div class="sm:col-span-2 flex items-start gap-2.5">
+                                <input id="agree" type="checkbox" required class="mt-1 w-4 h-4 rounded border-slate-300 text-primary focus:ring-primary">
+                                <label for="agree" class="text-sm text-slate-600">أوافق على التواصل بخصوص عرض منصة تعلّم.</label>
+                            </div>
+                            <div class="sm:col-span-2">
+                                <button type="submit" class="w-full sm:w-auto px-8 h-12 rounded-xl bg-primary text-white font-bold shadow-lg shadow-blue-600/20 hover:translate-y-[-1px] transition">إرسال الطلب</button>
+                                <p class="mt-3 text-xs text-slate-500">سيتواصل معك فريقنا خلال 24 ساعة عمل</p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="lg:col-span-2 lg:sticky lg:top-24">
+                    <div class="rounded-[32px] bg-gradient-to-br from-primary to-slate-800 text-white p-8 lg:p-10 shadow-2xl">
+                        <h4 class="text-xl font-extrabold">لماذا تبدأ اليوم؟</h4>
+                        <ul class="mt-6 space-y-4 text-slate-200">
+                            <li class="flex gap-3"><svg class="w-5 h-5 text-teal mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg><span>تفعيل سريع خلال 48 ساعة مع استيراد الموظفين.</span></li>
+                            <li class="flex gap-3"><svg class="w-5 h-5 text-teal mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg><span>أمان وامتثال كامل لبيانات شركتك.</span></li>
+                            <li class="flex gap-3"><svg class="w-5 h-5 text-teal mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"/></svg><span>ديمو مباشر مع خبير يعرض حالات مشابهة لمجالك.</span></li>
+                        </ul>
+                        <div class="mt-8 p-4 rounded-2xl bg-white/10 border border-white/15">
+                            <p class="text-sm">“انتقلنا من التدريب التقليدي إلى منصة موحدة. النتيجة؟ موظفون أكثر مهارة وتكلفة أقل.”</p>
+                            <p class="text-xs mt-2 opacity-80">— مدير تعلم وتطوير، قطاع الاتصالات</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="ASKS" class="py-20 bg-white border-t border-slate-100">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl lg:text-4xl font-extrabold text-center">الأسئلة الشائعة</h2>
+            <div class="mt-10 divide-y divide-slate-200 bg-[#F8FAFC] rounded-[28px] border border-slate-200">
+                <details class="group p-6 open:bg-white transition">
+                    <summary class="flex items-center justify-between cursor-pointer list-none">
+                        <span class="font-bold text-lg">كيف تتم الفوترة للشركات؟</span>
+                        <svg class="w-5 h-5 transition group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </summary>
+                    <p class="mt-3 text-slate-600 leading-relaxed">فوترة سنوية أو ربع سنوية حسب اختيارك، مع فاتورة ضريبية رسمية. نقدم خصومات للعقود متعددة السنوات والأعداد الكبيرة.</p>
+                </details>
+                <details class="group p-6 open:bg-white transition">
+                    <summary class="flex items-center justify-between cursor-pointer list-none">
+                        <span class="font-bold text-lg">هل يمكن تخصيص المحتوى حسب مجالنا؟</span>
+                        <svg class="w-5 h-5 transition group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </summary>
+                    <p class="mt-3 text-slate-600 leading-relaxed">نعم، ننشئ مسارات تعلم مخصصة، ونضيف محتواك الداخلي، ونوفر دورات حسب الطلب للمجالات المتخصصة.</p>
+                </details>
+                <details class="group p-6 open:bg-white transition">
+                    <summary class="flex items-center justify-between cursor-pointer list-none">
+                        <span class="font-bold text-lg">ماذا عن إلغاء الاشتراك؟</span>
+                        <svg class="w-5 h-5 transition group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </summary>
+                    <p class="mt-3 text-slate-600 leading-relaxed">يمكنك الإلغاء بنهاية دورة الفوترة. تبقى بياناتك متاحة للتصدير لمدة 90 يومًا.</p>
+                </details>
+                <details class="group p-6 open:bg-white transition">
+                    <summary class="flex items-center justify-between cursor-pointer list-none">
+                        <span class="font-bold text-lg">كيف تضمنون أمان بيانات الموظفين؟</span>
+                        <svg class="w-5 h-5 transition group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </summary>
+                    <p class="mt-3 text-slate-600 leading-relaxed">نستخدم تشفيرًا على مستوى المؤسسات، استضافة في المنطقة، صلاحيات دقيقة، وتكامل SSO. نلتزم بأفضل ممارسات حماية البيانات.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer CTA -->
+    <section class="relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-l from-primary to-teal"></div>
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                <div class="text-white text-center md:text-right">
+                    <h3 class="text-2xl lg:text-3xl font-extrabold">جاهز تبدأ؟</h3>
+                    <p class="mt-1 text-white/90">احصل على ديمو مخصص لشركتك هذا الأسبوع.</p>
+                </div>
+                <a href="#form" class="px-7 h-[48px] grid place-items-center rounded-xl bg-white text-navy font-extrabold shadow-xl hover:translate-y-[-1px] transition">اطلب عرضك الآن</a>
+            </div>
+        </div>
+    </section>
+
+    
+
+    <!-- Toast -->
+    <div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-[100] hidden">
+        <div class="bg-navy text-white px-5 py-3 rounded-2xl shadow-2xl flex items-center gap-2.5">
+            <svg class="w-5 h-5 text-emerald-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/></svg>
+            <span class="text-sm font-bold">تم استلام طلبك! سنتواصل خلال 24 ساعة.</span>
+        </div>
+    </div>
+
+    <script>
+        // Mobile menu
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        menuBtn?.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+
+        // Header shadow on scroll
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 10) header.classList.add('shadow-sm');
+            else header.classList.remove('shadow-sm');
+        });
+
+        // Form
+        const form = document.getElementById('leadForm');
+        const toast = document.getElementById('toast');
+        form?.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const data = Object.fromEntries(new FormData(form).entries());
+            console.log('Lead:', data);
+            toast.classList.remove('hidden');
+            form.reset();
+            setTimeout(() => toast.classList.add('hidden'), 4000);
+            // Scroll top a bit
+            window.scrollTo({ top: form.offsetTop - 100, behavior: 'smooth' });
+        });
+
+        // Smooth anchor
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.addEventListener('click', (e) => {
+                const id = a.getAttribute('href');
+                if (id.length > 1) {
+                    e.preventDefault();
+                    document.querySelector(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    mobileMenu?.classList.add('hidden');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
